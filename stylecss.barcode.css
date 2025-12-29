@@ -1,0 +1,227 @@
+/* --- Reset & Dasar (Pembersihan Awal) --- */
+* {
+    /* Menghilangkan jarak bawaan browser agar elemen menempel ke tepi */
+    margin: 0;
+    padding: 0;
+    /* Memastikan padding tidak menambah lebar elemen (menjaga layout tetap aman) */
+    box-sizing: border-box;
+}
+
+
+
+body {
+    /* Memilih font yang modern dan bersih */
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    /* Warna latar krem lembut untuk kesan estetik */
+    background-color: #fdfaf7;
+    color: #4a4a4a;
+    /* Mengatur tinggi minimal 100% dari layar agar footer bisa berada di bawah */
+    min-height: 100vh;
+    
+    /* STRUKTUR VERTIKAL: Menggunakan Flexbox */
+    display: flex;
+    /* Memaksa elemen di dalam body (header, main, footer) berjejer ke bawah */
+    flex-direction: column; 
+}
+
+
+
+/* --- Watermark (Tanda Air) --- */
+.watermark {
+    /* Membuat elemen menempel di satu posisi meski layar di-scroll */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* Transparansi agar tidak menutupi konten utama */
+    opacity: 0.2;
+    font-weight: bold;
+    color: #a5a58d;
+    /* Memastikan tanda air berada di lapisan paling depan */
+    z-index: 9999;
+    /* Memungkinkan kursor "menembus" teks ini agar tidak menghalangi klik */
+    pointer-events: none;
+}
+
+/* --- Style Header (Bagian Atas) --- */
+header {
+    background-color: #fff;
+    /* Memberikan ruang yang cukup luas di bagian atas halaman */
+    padding: 50px 20px;
+    text-align: center;
+    /* Garis tipis sebagai pemisah antara header dan konten */
+    border-bottom: 1px solid #eee;
+}
+
+header h1 span {
+    /* Memberikan warna berbeda pada nama brand */
+    color: #a5a58d;
+}
+
+/* --- Style Main (Bagian Tengah/Konten) --- */
+.gateway-wrapper {
+    /* KUNCI: flex: 1 akan "menarik" bagian ini agar mengisi semua sisa ruang kosong.
+       Hal ini memastikan Footer selalu terdorong ke paling bawah layar. */
+    flex: 1; 
+    display: flex;
+    /* Menempatkan kartu pilihan tepat di tengah-tengah secara vertikal & horizontal */
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.choice-container {
+    display: flex;
+    /* Jarak antar kartu */
+    gap: 30px;
+    /* Kartu akan turun ke bawah secara otomatis jika layar sempit (seperti di HP) */
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* --- Card Style (Gaya Kartu Pilihan) --- */
+.choice-card {
+    /* Membuat kartu kiri dan kanan memiliki lebar yang sama */
+    flex: 1;
+    /* Lebar minimal agar kartu tidak terlalu kurus di layar kecil */
+    min-width: 300px;
+    height: 350px;
+    background: white;
+    /* Sudut melengkung agar terlihat modern dan lembut */
+    border-radius: 20px;
+    /* Menghilangkan garis bawah pada teks link */
+    text-decoration: none;
+    color: inherit;
+    /* Menaruh teks dan icon di bagian dasar kartu */
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    /* Bayangan halus untuk efek melayang */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    /* Mengatur kecepatan animasi saat kursor menyentuh kartu */
+    transition: 0.4s;
+    position: relative;
+    /* Memotong elemen yang keluar dari batas kartu */
+    overflow: hidden;
+    /* Gradasi warna lembut sebagai latar belakang kartu */
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    border: 1px solid #eee;
+}
+
+/* --- Efek Interaksi (Hover) --- */
+.choice-card:hover {
+    /* Kartu sedikit terangkat ke atas saat disentuh kursor */
+    transform: translateY(-10px);
+    /* Bayangan menjadi lebih tajam dan berwarna */
+    box-shadow: 0 15px 35px rgba(165, 165, 141, 0.3);
+    /* Warna garis pinggir berubah menjadi hijau sage */
+    border-color: #a5a58d;
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* --- Style Tombol di Dalam Kartu --- */
+.btn-enter {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: #a5a58d;
+    color: white;
+    /* Membuat tombol berbentuk lonjong */
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.choice-card:hover .btn-enter {
+    /* Warna tombol berubah menjadi lebih gelap saat kartu di-hover */
+    background: #6b705c;
+}
+
+/* --- Style Footer (Bagian Bawah) --- */
+footer {
+    background: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    /* Garis pemisah antara konten utama dan informasi bawah */
+    border-top: 1px solid #eee;
+}
+
+.social-links {
+    margin: 15px 0;
+}
+
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #6b705c;
+    font-weight: bold;
+}
+
+.copyright {
+    /* Ukuran teks kecil untuk hak cipta */
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+/* --- Animasi Bunga Berguguran --- */
+
+.flower-container {
+    position: fixed;
+    top: -50px; /* Mulai dari luar layar atas */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Agar tidak menghalangi klik pada tombol */
+    z-index: 1000; /* Di atas konten tapi di bawah watermark */
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    top: -10%;
+    user-select: none;
+    cursor: default;
+    animation: fall 10s linear infinite; /* Animasi jatuh terus menerus */
+}
+
+/* Variasi posisi dan kecepatan jatuh bunga agar terlihat alami */
+.flower:nth-child(1) { left: 2%; animation-delay: 0s; font-size: 1rem; }
+.flower:nth-child(2) { left: 80%; animation-delay: 13s; font-size: 1.5rem; }
+.flower:nth-child(3) { left: 60%; animation-delay: 4s; font-size: 1.2rem; }
+.flower:nth-child(4) { left: 55%; animation-delay: 1s; font-size: 1.8rem; }
+.flower:nth-child(5) { left: 95%; animation-delay: 12s; font-size: 1.3rem; }
+.flower:nth-child(6) { left: 10%; animation-delay: 3s; font-size: 1.4rem; }
+.flower:nth-child(7) { left: 85%; animation-delay: 7s; font-size: 2rem; }
+.flower:nth-child(8) { left: 15%; animation-delay: 5s; font-size: 1.6rem; }
+.flower:nth-child(9) { left: 45%; animation-delay: 4s; font-size: 1.8rem; }
+.flower:nth-child(10) { left: 90%; animation-delay: 1s; font-size: 1rem; }
+.flower:nth-child(11) { left: 35%; animation-delay: 6ms; font-size: 1.3rem; }
+.flower:nth-child(12) { left: 75%; animation-delay: 2s; font-size: 1.7rem; }
+.flower:nth-child(13) { left: 20%; animation-delay: 4s; font-size: 2.3rem; }
+.flower:nth-child(14) { left: 68%; animation-delay: 15s; font-size: 1.2rem; }
+.flower:nth-child(15) { left: 65%; animation-delay: 8s; font-size: 1.1rem; }
+.flower:nth-child(16) { left: 25%; animation-delay: 9s; font-size: 1.6rem; }
+
+/* Logika gerakan jatuh dan bergoyang */
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Muncul perlahan saat mulai jatuh */
+    }
+    100% {
+        top: 110%; /* Jatuh sampai melewati bawah layar */
+        /* Gerakan zig-zag (sway) dan berputar */
+        transform: translateX(100px) rotate(360deg);
+        opacity: 0.3; /* Menghilang perlahan di bawah */
+    }
+}

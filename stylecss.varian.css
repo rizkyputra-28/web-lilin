@@ -1,0 +1,103 @@
+/* style.css */
+
+/* Pengaturan dasar halaman */
+body {
+    /* Menggunakan font sans-serif modern agar mudah dibaca di layar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Warna latar belakang krem pucat (warm white) yang nyaman di mata */
+    background-color: #fdfaf7;
+    /* Warna teks abu-abu gelap agar kontrasnya pas (tidak terlalu tajam seperti hitam pekat) */
+    color: #4a4a4a;
+    /* Jarak antar baris teks agar paragraf tidak terlihat sesak */
+    line-height: 1.6;
+}
+
+/* Bagian atas halaman */
+header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    /* Garis bawah tipis untuk memisahkan header dengan konten */
+    border-bottom: 1px solid #eee;
+}
+
+/* Navigasi menu */
+nav a {
+    margin: 0 15px;
+    text-decoration: none; /* Menghilangkan garis bawah default link */
+    color: #8e8d8a;
+    font-weight: bold;
+}
+
+/* Pembungkus utama konten agar tidak terlalu lebar di layar besar */
+.container {
+    max-width: 1000px;
+    margin: 40px auto; /* Menengahkan container */
+    padding: 20px;
+}
+
+/* Sistem tata letak produk (Grid) */
+.product-grid {
+    display: grid;
+    /* Membuat grid otomatis: ukuran minimal 200px dan maksimal memenuhi ruang tersedia */
+    /* Ini membuat desain langsung responsif tanpa banyak media queries */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Jarak antar kartu produk */
+}
+
+/* Gaya kartu produk */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px; /* Sudut melengkung halus */
+    text-align: center;
+    /* Bayangan tipis agar kartu terlihat 'mengapung' */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    /* Efek halus saat terjadi perubahan (seperti hover) */
+    transition: transform 0.3s;
+}
+
+/* Efek saat kartu diarahkan kursor */
+.card:hover {
+    /* Memberikan efek sedikit terangkat saat disentuh */
+    transform: translateY(-5px);
+}
+
+/* Tampilan detail produk */
+.product-detail {
+    display: flex; /* Menyusun foto dan info secara berdampingan */
+    gap: 40px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+/* Warna judul produk (hijau zaitun gelap) */
+.product-info h1 { color: #6b705c; }
+
+/* Gaya tombol aksi */
+.btn {
+    display: inline-block;
+    background: #a5a58d; /* Warna utama tombol (hijau sage/zaitun) */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Efek hover pada tombol */
+.btn:hover { 
+    /* Warna menjadi sedikit lebih gelap saat diarahkan kursor */
+    background: #6b705c; 
+}
+
+footer {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 3rem 20px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}

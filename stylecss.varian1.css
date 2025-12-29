@@ -1,0 +1,185 @@
+/* --- Pengaturan Dasar (Global Styles) --- */
+body {
+    /* Menggunakan font sans-serif modern agar tulisan bersih dan profesional */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Menghilangkan margin/padding bawaan browser agar tidak ada celah kosong di pinggir */
+    margin: 0;
+    padding: 0;
+    /* Warna latar belakang krem pucat untuk memberikan kesan hangat & rileks */
+    background-color: #fdfaf7; 
+    /* Warna teks abu-abu gelap agar tidak terlalu kontras/tajam di mata */
+    color: #4a4a4a;
+    /* Memberikan ruang antar baris tulisan agar paragraf mudah dibaca */
+    line-height: 1.6;
+}
+
+/* --- Watermark (Tanda Air) --- */
+.watermark {
+    /* Membuat elemen tetap di posisi yang sama meskipun layar di-scroll */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* Membuat teks agak transparan (20%) agar tidak mengganggu konten utama */
+    opacity: 0.2;
+    font-weight: bold;
+    color: #a5a58d;
+    font-size: 1.1rem;
+    /* Fitur Penting: Kursor akan 'menembus' elemen ini, sehingga teks/tombol di bawahnya tetap bisa diklik */
+    pointer-events: none; 
+    /* Memastikan watermark berada di lapisan paling depan */
+    z-index: 9999;
+}
+
+/* --- Header & Navigasi --- */
+header {
+    background-color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    /* Garis tipis di bagian bawah sebagai pembatas header */
+    border-bottom: 1px solid #eee;
+}
+
+header h1 {
+    margin-bottom: 15px;
+    color: #6b705c; /* Warna hijau zaitun khas produk alami */
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: #8e8d8a;
+    font-weight: bold;
+    /* Durasi transisi agar perubahan warna saat kursor menempel terasa halus */
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #6b705c; /* Warna berubah saat kursor diarahkan (hover) */
+}
+
+/* --- Layout Konten Utama --- */
+.container {
+    /* Membatasi lebar maksimal agar konten tidak terlalu melebar di layar PC */
+    max-width: 1000px;
+    /* Menaruh kontainer di tengah secara otomatis */
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.product-detail {
+    /* Menggunakan Flexbox untuk menyusun gambar (kiri) dan teks (kanan) secara otomatis */
+    display: flex;
+    /* Memungkinkan elemen turun ke bawah jika layar sempit (seperti di HP) */
+    flex-wrap: wrap; 
+    gap: 50px; /* Jarak antara gambar dan info produk */
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px; /* Sudut melengkung yang memberikan kesan modern & lembut */
+    /* Memberikan bayangan halus untuk efek kedalaman */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+
+
+/* --- Pengaturan Gambar --- */
+.product-image {
+    flex: 1; /* Mengambil ruang yang tersedia secara fleksibel */
+    min-width: 300px; /* Lebar minimal agar gambar tidak terlalu kecil */
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 15px;
+    /* Menjaga proporsi gambar tetap bagus meskipun dimensinya berbeda */
+    object-fit: cover;
+}
+
+/* --- Info Produk (Teks & Harga) --- */
+.product-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-info h1 {
+    color: #6b705c;
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.price {
+    font-size: 1.8rem;
+    color: #a5a58d;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* --- Daftar Spesifikasi --- */
+.specs {
+    list-style: none; /* Menghilangkan titik (bullet point) bawaan */
+    padding: 0;
+    margin: 20px 0;
+}
+
+.specs li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    /* Dibutuhkan agar posisi poin kustom (::before) bisa diatur dengan presisi */
+    position: relative;
+}
+
+/* Membuat poin kustom (titik) menggunakan CSS */
+.specs li::before {
+    content: "•"; /* Simbol titik */
+    color: #a5a58d;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+
+
+/* --- Tombol (Buttons) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+/* Tombol Utama (Beli/Pesan) */
+.btn-primary {
+    background: #a5a58d;
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: #6b705c;
+    /* Memberikan efek tombol sedikit 'terangkat' saat disentuh kursor */
+    transform: translateY(-2px);
+}
+
+/* Tombol Sekunder (Garis saja) */
+.btn-outline {
+    background: transparent;
+    border: 1px solid #a5a58d;
+    color: #a5a58d;
+    font-size: 0.9rem;
+}
+
+.btn-outline:hover {
+    background: #fdfaf7;
+}
+
+/* --- Footer (Bagian Bawah) --- */
+footer {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 3rem 20px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
